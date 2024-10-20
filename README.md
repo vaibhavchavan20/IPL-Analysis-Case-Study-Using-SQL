@@ -1,6 +1,9 @@
 # IPL Data Analysis Case Study Using SQL
 
 ## Data Analytics Portfolio Project using real world data for beginners
+**Case study on [iThinkData](https://www.youtube.com/@iThinkData) By Vaibhav Chavan**
+
+Subscribe to [iThinkData](https://www.youtube.com/@iThinkData) for more SQL case studies and tutorials.
 
 ## Introduction
 
