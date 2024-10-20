@@ -9,7 +9,7 @@ Subscribe to [iThinkData](https://www.youtube.com/@iThinkData) for more SQL case
 ## A. Basic Level Questions
 
 ### Q1. Winner of the season team
-###  Find out each seasons winner team.
+###  Question:   Find out each seasons winner team.
 
 ```sql
 SELECT  season, 
@@ -24,7 +24,7 @@ ORDER BY season;
 
 
 ### Q2. Total matches per season
-### Question: How many matches were played in each season from 2008 to 2024?
+### Question:  How many matches were played in each season from 2008 to 2024?
 
 ```sql
 SELECT	season,
@@ -36,7 +36,7 @@ ORDER BY season;
 
 
 ### Q3. City-wise matches
-### Question: In which cities were the most IPL matches hosted?
+### Question:  In which cities were the most IPL matches hosted?
 
 ```sql
 SELECT 	city,
@@ -51,7 +51,7 @@ ORDER BY COUNT(id) DESC ;
 
 
 ### Q4. Top ‘Player Of the Match’ Awards
-### Question: Which player has won the most "Player of the Match" awards in IPL history?
+### Question:   Which player has won the most "Player of the Match" awards in IPL history?
 
 ```sql
 SELECT  player_of_match,
@@ -63,7 +63,7 @@ LIMIT 1;
 ```
 
 ### Q5. Most wins by a Team
-### Question: Which top 3 teams won the most matches across all seasons?
+### Question:   Which top 3 teams won the most matches across all seasons?
 ```sql
 SELECT  winner,
 		COUNT(winner) AS 'Most Matches winner Team'
@@ -73,7 +73,7 @@ ORDER BY COUNT(winner) DESC limit 3;
 ```
 
 ### Q6. Top scorer (runs) in IPL History
-### Question: Identify the top scorer(runs) in IPL history.
+### Question:  Identify the top scorer(runs) in IPL history.
 ```sql
 SELECT  batter, 
 		SUM(batsman_runs) AS total_runs
@@ -90,7 +90,7 @@ LIMIT 1;
 ## Intermediate Level Questions:
 
 ### Q1. Most 4s and 6s in Powerplay by Team
-### Question: Which team hit the most 4s and 6s during the powerplay (1st-6th over) in the IPL?
+### Question:   Which team hit the most 4s and 6s during the powerplay (1st-6th over) in the IPL?
 ```sql
 SELECT d.batting_team, 
        SUM(CASE WHEN d.batsman_runs = 4 THEN 1 ELSE 0 END) AS total_4s,
@@ -103,7 +103,7 @@ ORDER BY (total_4s + total_6s) DESC;
 ```
 
 ### Q2. Top 3 best economy bowlers in 2024
-### Question: Find the top 3 bowlers with the best economy rate (minimum 30 overs bowled) in 2024 IPL season.
+### Question:   Find the top 3 bowlers with the best economy rate (minimum 30 overs bowled) in 2024 IPL season.
 ```sql
 SELECT  b.bowler, 
 		ROUND(SUM(b.total_runs) / (COUNT(b.bowler) / 6.0),2) AS economy_rate
@@ -117,7 +117,7 @@ LIMIT 3;
 ```
 
 ### Q3. Best batting strike rate in death overs
-### Question: Identify the batsmen with the best strike rate (minimum 100 balls faced) in death overs (16th-20th) across all IPL seasons.
+### Question:   Identify the batsmen with the best strike rate (minimum 100 balls faced) in death overs (16th-20th) across all IPL seasons.
 ```sql
 SELECT d.batter, 
        ROUND(SUM(d.batsman_runs) * 100.0 / COUNT(*),2) AS strike_rate, 
@@ -132,7 +132,7 @@ ORDER BY strike_rate DESC;
 ```
 
 ### Q4. Fastest Century in IPL
-### Question: Identify the fastest century in IPL (minimum of 50 balls faced). Find the batsman who scored it, the number of balls faced, and the strike rate.
+### Question:   Identify the fastest century in IPL (minimum of 50 balls faced). Find the batsman who scored it, the number of balls faced, and the strike rate.
 ```sql
 SELECT  d.batter, 
 		COUNT(*) AS balls_faced, 
@@ -147,7 +147,7 @@ LIMIT 1;
 ```
 
 ### Q5. Most consistent batsmen across all seasons
-### Question: Identify the most consistent batsmen by calculating the average runs per match for batsmen with at least 500 total runs across all matches.
+### Question:   Identify the most consistent batsmen by calculating the average runs per match for batsmen with at least 500 total runs across all matches.
 ```sql
 WITH TotalBatsmanRuns AS (
     SELECT b.batter, 
@@ -172,7 +172,7 @@ ORDER BY avg_runs_per_match DESC;
 ## High Level Questions:
 
 ### Q1. Best finisher batsmen in IPL season
-### Question: Identify the top 3 finishers (batsmen) in each IPL season final match based on total runs scored in the last 5 overs (overs 16-20) of a match. The query should return the top 3 batsmen for each seasons ranked   by their total runs in the death overs in final match.
+### Question:   Identify the top 3 finishers (batsmen) in each IPL season final match based on total runs scored in the last 5 overs (overs 16-20) of a match. The query should return the top 3 batsmen for each seasons ranked   by their total runs in the death overs in final match.
 .
 ```sql
 WITH DeathOverRuns AS (
@@ -203,7 +203,7 @@ ORDER BY season,
 
 
 ### Q2. Identify ‘Nervous Nineties’
-### Question: Identify all the players who got out in the 90s (between 90 and 99 runs) and how they were dismissed.
+### Question:   Identify all the players who got out in the 90s (between 90 and 99 runs) and how they were dismissed.
 ```sql
 WITH batsman_totals AS (
     SELECT  match_id, 
@@ -224,7 +224,7 @@ ORDER BY bt.total_runs DESC;
 ```
 
 ### Q3. Death Over Hero bowlers
-### Question: Identify bowlers who successfully defended 6 or fewer runs in the last over of a match (over 20) and the matches where they achieved this feat.
+### Question:   Identify bowlers who successfully defended 6 or fewer runs in the last over of a match (over 20) and the matches where they achieved this feat.
 ```sql
 WITH final_over_defenses AS (
     SELECT  m.season,
@@ -256,7 +256,7 @@ ORDER BY runs_conceded ASC;
 
 
 ### Q4. Biggest match winners
-### Question: Find the bowlers with the most 4 or 5-wicket hauls in IPL history.
+### Question:   Find the bowlers with the most 4 or 5-wicket hauls in IPL history.
 ```sql
 WITH WicketHauls AS (
     SELECT b.bowler, 
@@ -277,7 +277,7 @@ ORDER BY four_five_wicket_hauls DESC;
 ```
 
 ### Q5. Top 5 Death over specialist bowlers
-### Question: Identify the bowlers with the most wickets in the death overs (overs 16-20) for each season.
+### Question:   Identify the bowlers with the most wickets in the death overs (overs 16-20) for each season.
 
 ```sql
 WITH DeathOverWickets AS (
