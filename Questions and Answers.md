@@ -19,8 +19,25 @@ WHERE match_type = 'Final'
 GROUP BY season
 ORDER BY season;
 ```
-
-
+| season | winner                |
+|--------|-----------------------|
+| 2008   | Rajasthan Royals       |
+| 2009   | Deccan Chargers        |
+| 2010   | Chennai Super Kings    |
+| 2011   | Chennai Super Kings    |
+| 2012   | Kolkata Knight Riders  |
+| 2013   | Mumbai Indians         |
+| 2014   | Kolkata Knight Riders  |
+| 2015   | Mumbai Indians         |
+| 2016   | Sunrisers Hyderabad    |
+| 2017   | Mumbai Indians         |
+| 2018   | Chennai Super Kings    |
+| 2019   | Mumbai Indians         |
+| 2020   | Mumbai Indians         |
+| 2021   | Chennai Super Kings    |
+| 2022   | Gujarat Titans         |
+| 2023   | Chennai Super Kings    |
+| 2024   | Kolkata Knight Riders  |
 
 
 ### Q2. Total matches per season
@@ -28,11 +45,30 @@ ORDER BY season;
 
 ```sql
 SELECT	season,
-		COUNT(season) AS 'Total Matches in Season'
+	COUNT(season) AS 'Total Matches in Season'
 FROM matches
 GROUP BY season
 ORDER BY season;
 ```
+| season | Total Matches in Season |
+|--------|-------------------------|
+| 2008   | 58                      |
+| 2009   | 57                      |
+| 2010   | 60                      |
+| 2011   | 73                      |
+| 2012   | 74                      |
+| 2013   | 76                      |
+| 2014   | 60                      |
+| 2015   | 59                      |
+| 2016   | 60                      |
+| 2017   | 59                      |
+| 2018   | 60                      |
+| 2019   | 60                      |
+| 2020   | 60                      |
+| 2021   | 60                      |
+| 2022   | 74                      |
+| 2023   | 74                      |
+| 2024   | 71                      |
 
 
 ### Q3. City-wise matches
@@ -45,6 +81,44 @@ FROM matches
 GROUP BY city
 ORDER BY COUNT(id) DESC ;
 ```
+| city             | Total Matches in City |
+|------------------|-----------------------|
+| Mumbai           | 173                   |
+| Kolkata          | 93                    |
+| Delhi            | 90                    |
+| Chennai          | 85                    |
+| Hyderabad        | 77                    |
+| Bangalore        | 65                    |
+| Chandigarh       | 61                    |
+| Jaipur           | 57                    |
+| Pune             | 51                    |
+| Dubai            | 46                    |
+| Abu Dhabi        | 37                    |
+| Ahmedabad        | 36                    |
+| Bengaluru        | 29                    |
+| Sharjah          | 28                    |
+| Durban           | 15                    |
+| Visakhapatnam    | 15                    |
+| Lucknow          | 14                    |
+| Dharamsala       | 13                    |
+| Centurion        | 12                    |
+| Rajkot           | 10                    |
+| Indore           | 9                     |
+| Navi Mumbai      | 9                     |
+| Johannesburg     | 8                     |
+| Cape Town        | 7                     |
+| Port Elizabeth   | 7                     |
+| Cuttack          | 7                     |
+| Ranchi           | 7                     |
+| Raipur           | 6                     |
+| Mohali           | 5                     |
+| Kochi            | 5                     |
+| Kanpur           | 4                     |
+| Kimberley        | 3                     |
+| East London      | 3                     |
+| Guwahati         | 3                     |
+| Nagpur           | 3                     |
+| Bloemfontein     | 2                     |
 
 
 
