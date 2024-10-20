@@ -76,7 +76,7 @@ ORDER BY season;
 
 ```sql
 SELECT 	city,
-		COUNT(id) AS 'Total Matches in City'
+	COUNT(id) AS 'Total Matches in City'
 FROM matches
 GROUP BY city
 ORDER BY COUNT(id) DESC ;
@@ -135,16 +135,24 @@ GROUP BY player_of_match
 ORDER BY COUNT(player_of_match) DESC
 LIMIT 1;
 ```
+| player_of_match   | Highest POM Awards |
+|-------------------|--------------------|
+| AB de Villiers    | 25                 |
 
 ### Q5. Most wins by a Team
 ### Question:   Which top 3 teams won the most matches across all seasons?
 ```sql
 SELECT  winner,
-		COUNT(winner) AS 'Most Matches winner Team'
+	COUNT(winner) AS 'Most Matches winner Team'
 FROM matches
 GROUP BY winner
 ORDER BY COUNT(winner) DESC limit 3;
 ```
+| winner                | Most Matches winner Team |
+|-----------------------|--------------------------|
+| Mumbai Indians        | 144                      |
+| Chennai Super Kings   | 138                      |
+| Kolkata Knight Riders | 131                      |
 
 ### Q6. Top scorer (runs) in IPL History
 ### Question:  Identify the top scorer(runs) in IPL history.
@@ -157,6 +165,9 @@ ORDER BY total_runs DESC
 LIMIT 1;
 ```
 
+| batter  | total_runs |
+|---------|------------|
+| V Kohli | 8014       |
 
 
 
