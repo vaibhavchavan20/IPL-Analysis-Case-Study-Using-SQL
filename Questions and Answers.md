@@ -9,7 +9,7 @@ Subscribe to [iThinkData](https://www.youtube.com/@iThinkData) for more SQL case
 ## A. Basic Level Questions
 
 ### Q1. Winner of the season team
-### Question: Find out each seasons winner team.
+###  Find out each seasons winner team.
 
 ```sql
 SELECT  season, 
