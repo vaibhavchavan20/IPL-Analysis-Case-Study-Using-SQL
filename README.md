@@ -1,4 +1,4 @@
-# IPL-Analysis-Case-Study-Using-SQL
+# IPL-Data-Analysis-Case-Study-Using-SQL
 
 **Case study on [iThinkData](https://www.youtube.com/@iThinkData) By Vaibhav Chavan**
 
