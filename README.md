@@ -34,3 +34,17 @@ To follow along with the SQL queries, you can download or connect to the IPL dat
 ## Contributing
 
 Contributions to the case study are welcome! If you have additional questions or insights related to the dataset, feel free to submit a pull request or open an issue.
+
+- ----------------------------------------------------------------------------
+
+### 🙋‍♂️ About Me
+
+I’m **Vaibhav Chavan**, the creator of [iThinkData](https://www.youtube.com/@iThinkData?sub_confirmation=1), a platform dedicated to making data analytics and SQL easy to understand for everyone. Follow along as I dive deep into SQL tutorials, case studies, and data projects on YouTube.
+
+**🌟 Stay Connected with iThinkData ! 🌟**
+
+**🎥 Subscribe to [iThinkData](https://www.youtube.com/@iThinkData?sub_confirmation=1) :**  🔔 Don't miss out on weekly data challenges, tutorials, and expert insights! 💡📈
+
+**👨‍💼 [LinkedIn](https://linkedin.com/in/vaibhav-chavan) :**  📊 Let’s connect professionally and build a powerful data-driven network! 💼🌐
+
+**💬 Join My [WhatsApp Channel](https://whatsapp.com/channel/0029VaoircxInlqLbopDNS2K) :** 📱 Be the first to get exclusive content, project updates, and new videos! 🚀📊
