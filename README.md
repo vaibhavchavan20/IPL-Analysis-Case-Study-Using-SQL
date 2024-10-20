@@ -34,7 +34,8 @@ To follow along with the SQL queries, you can download or connect to the IPL dat
 ## Contributing
 
 Contributions to the case study are welcome! If you have additional questions or insights related to the dataset, feel free to submit a pull request or open an issue.
--
+
+
 [Click Here](https://github.com/vaibhavchavan20/IPL-Analysis-Case-Study-Using-SQL/blob/main/Questions%20and%20Answers.md) to go to Questions, SQL Queries Solutions and Outputs.
 
 - ----------------------------------------------------------------------------
