@@ -11,7 +11,7 @@
 -- Q1. Find out each seasons winner team.
 
 SELECT  season, 
-		winner 
+	winner 
 FROM matches
 WHERE match_type ='Final'
 GROUP BY season
@@ -21,7 +21,7 @@ ORDER BY season ;
 -- Q2. How many matches were played in each season from 2008 to 2024?
 
 SELECT	season,
-		COUNT(season) AS 'Total Matches in Season'
+	COUNT(season) AS 'Total Matches in Season'
 FROM matches
 GROUP BY season
 ORDER BY season;
@@ -30,7 +30,7 @@ ORDER BY season;
 -- Q3. In which cities were the most IPL matches hosted?
 
 SELECT 	city,
-		COUNT(id) AS 'Total Matches in City'
+	COUNT(id) AS 'Total Matches in City'
 FROM matches
 GROUP BY city
 ORDER BY COUNT(id) DESC ;
@@ -39,7 +39,7 @@ ORDER BY COUNT(id) DESC ;
 -- Q4. Which player has won the most "Player of the Match" awards in IPL history?
 
 SELECT  player_of_match,
-		COUNT(player_of_match) AS ' Highest POM Awards'
+	COUNT(player_of_match) AS ' Highest POM Awards'
 FROM matches
 GROUP BY player_of_match
 ORDER BY COUNT(player_of_match) DESC
@@ -49,7 +49,7 @@ LIMIT 1;
 -- Q5. Which top 3 teams won the most matches across all seasons?
 
 SELECT  winner,
-		COUNT(winner) AS 'Most Matches winner Team'
+	COUNT(winner) AS 'Most Matches winner Team'
 FROM matches
 GROUP BY winner
 ORDER BY COUNT(winner) DESC limit 3;
@@ -58,7 +58,7 @@ ORDER BY COUNT(winner) DESC limit 3;
 -- Q6. Identify the top scorer(runs) in IPL history.
 
 SELECT  batter, 
-		SUM(batsman_runs) AS total_runs
+	SUM(batsman_runs) AS total_runs
 FROM deliveries
 GROUP BY batter
 ORDER BY total_runs DESC
@@ -85,7 +85,7 @@ ORDER BY (total_4s + total_6s) DESC;
 --     (minimum 30 overs bowled) in 2024 IPL season.
 
 SELECT  b.bowler, 
-		ROUND(SUM(b.total_runs) / (COUNT(b.bowler) / 6.0),2) AS economy_rate
+	ROUND(SUM(b.total_runs) / (COUNT(b.bowler) / 6.0),2) AS economy_rate
 FROM deliveries b
 JOIN matches m ON b.match_id = m.id
 WHERE m.season = 2024
@@ -104,7 +104,6 @@ SELECT d.batter,
 FROM deliveries d
 JOIN matches m ON d.match_id = m.id
 WHERE d.overs BETWEEN 15 AND 19
--- AND m.season = 2023
 GROUP BY d.batter
 HAVING COUNT(*) >= 100     -- Minimum 100 balls faced
 ORDER BY strike_rate DESC;
@@ -114,8 +113,8 @@ ORDER BY strike_rate DESC;
 --     Find the batsman who scored it, the number of balls faced, and the strike rate.
 
 SELECT  d.batter, 
-		COUNT(*) AS balls_faced, 
-		SUM(d.batsman_runs) AS total_runs,
+	COUNT(*) AS balls_faced, 
+	SUM(d.batsman_runs) AS total_runs,
         SUM(d.batsman_runs) * 100.0 / COUNT(*) AS strike_rate
 FROM deliveries d
 JOIN matches m ON d.match_id = m.id
@@ -171,7 +170,7 @@ RankedFinishers AS (
     FROM DeathOverRuns
 )
 SELECT  batter, 
-		season, 
+	season, 
         runs_in_death_overs
 FROM RankedFinishers
 WHERE ranks <= 3
@@ -183,14 +182,14 @@ ORDER BY season,
 
 WITH batsman_totals AS (
     SELECT  match_id, 
-			batter, 
+	    batter, 
             SUM(batsman_runs) AS total_runs
     FROM deliveries
     GROUP BY match_id, batter
 )
 SELECT  d.match_id, 
-		d.batter, 
-		d.dismissal_kind, 
+	d.batter, 
+	d.dismissal_kind, 
         bt.total_runs
 FROM deliveries d
 JOIN batsman_totals bt ON d.batter = bt.batter AND d.match_id = bt.match_id
@@ -204,25 +203,25 @@ ORDER BY bt.total_runs DESC;
 
 WITH final_over_defenses AS (
     SELECT  m.season,
-			d.match_id,
+	    d.match_id,
             m.team1,
             m.team2,
-			d.bowling_team, 
+	    d.bowling_team, 
             d.bowler, 
             SUM(d.total_runs) AS runs_conceded
     FROM deliveries d
     JOIN matches m ON d.match_id = m.id
     WHERE d.overs = 19
     GROUP BY d.match_id, 
-			 d.bowling_team, 
-             d.bowler
+	    d.bowling_team, 
+            d.bowler
 )
 SELECT  season,
-		match_id,
+	match_id,
         team1,
         team2,
         bowling_team,
-		bowler, 
+	bowler, 
         runs_conceded
 FROM final_over_defenses
 WHERE runs_conceded <= 6
@@ -272,6 +271,9 @@ SELECT  season,bowler, total_wickets
 FROM RankedDeathOverBowlers
 WHERE ranks <= 5
 ORDER BY season, ranks;
+
+
+-- ------------------------------------
 
   /*  
    
