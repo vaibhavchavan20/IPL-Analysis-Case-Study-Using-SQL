@@ -23,40 +23,28 @@ ORDER BY season;
 
 
 
-
-
-
-
-
 ### Q2. Total matches per season
 ### Question: How many matches were played in each season from 2008 to 2024?
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+```sql
+SELECT	season,
+		COUNT(season) AS 'Total Matches in Season'
+FROM matches
+GROUP BY season
+ORDER BY season;
+```
 
 
 ### Q3. City-wise matches
 ### Question: In which cities were the most IPL matches hosted?
 
-
-
-
-
-
+```sql
+SELECT 	city,
+		COUNT(id) AS 'Total Matches in City'
+FROM matches
+GROUP BY city
+ORDER BY COUNT(id) DESC ;
+```
 
 
 
@@ -65,8 +53,20 @@ ORDER BY season;
 ### Q4. Top ‘Player Of the Match’ Awards
 ### Question: Which player has won the most "Player of the Match" awards in IPL history?
 
+``sql
+SELECT  player_of_match,
+	COUNT(player_of_match) AS ' Highest POM Awards'
+FROM matches
+GROUP BY player_of_match
+ORDER BY COUNT(player_of_match) DESC
+LIMIT 1;
+```
+
 ### Q5. Most wins by a Team
 ### Question: Which top 3 teams won the most matches across all seasons?
+
+
+
 
 ### Q6. Top scorer (runs) in IPL History
 ### Question: Identify the top scorer(runs) in IPL history.
